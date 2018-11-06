@@ -1,5 +1,5 @@
 // 0 means menu, 1 means question game, 2 means hill game.
-int state = 0;
+int state = 1;
 
 int totalTime = 5000;
 int savedTime;
