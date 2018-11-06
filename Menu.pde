@@ -1,4 +1,5 @@
 class Menu{
+  
   String[] facts = {
   "The Beano comics were first published in 1939.",
   "The comics are published by DC Thomson.",
@@ -17,7 +18,7 @@ class Menu{
   
   PImage title;
   
-  void characterChoices(){    
+  void characterChoices(){
     int count = 0;
     for (BeanoChar character : characters){
       character.setCharacter();
@@ -27,6 +28,11 @@ class Menu{
   }
   
   void startButton(){
+    translate(600, 350);
+    fill(yellow);
+    strokeWeight(5);
+    stroke(blue);
+    rect(0, 700, 1200, 50);
   }
   
   void factBox(){
@@ -38,7 +44,6 @@ class Menu{
     textSize(40);
     fill(red);
     text(fact, 10, 740);
-    
   }
   
   void drawTitle(){

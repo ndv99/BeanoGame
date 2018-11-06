@@ -1,13 +1,16 @@
 // 0 means menu, 1 means question game, 2 means hill game.
-int state = 0;
+int state = 1;
 
 int totalTime = 5000;
 int savedTime;
 
 PImage backgroundIMG;
+
 Menu menu = new Menu();
 Player player = new Player();
 BeanoChar[] characters = menu.getCharacters();
+
+QuestionGame qGame = new QuestionGame();
 
 color yellow = color(253, 253, 5);
 color blue = color(14, 76, 139);
@@ -45,6 +48,28 @@ void draw(){
       }
       break;
     case(1):
+      int currentQuestion = qGame.getCurrentQuestion();
+      if (currentQuestion < 5){
+        qGame.showQuestion();
+        if (keyPressed){
+          println(key);
+          if (key == '1'){
+            qGame.setPlayerAnswer("1");
+            delay(100);
+            qGame.nextQuestion();
+          } else if (key == '2'){
+            qGame.setPlayerAnswer("2");
+            delay(100);
+            qGame.nextQuestion();
+          } else if (key == '3'){
+            qGame.setPlayerAnswer("3");
+            delay(100);
+            qGame.nextQuestion();
+          }
+        }
+      } else {
+        //qGame.showScore();
+      }
       break;
     case(2):
       break;
