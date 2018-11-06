@@ -72,7 +72,6 @@ class QuestionGame{
     int correctAnswers = 0;
     for (int i = 0; i < playerAnswers.length; i++){
       println(i);
-      delay(500);
       if (playerAnswers[i].equals(rightAnswers[i])){
         correctAnswers ++;
       }
@@ -82,11 +81,35 @@ class QuestionGame{
     stroke(blue);
     rect(0, 250, 1200, 150);
     fill(red);
-    text("You got " + correctAnswers + " questions right!", 10, 300);
-    this.currentQuestion ++;
+    textSize(90);
+    text("You got " + correctAnswers + " questions right!", 10, 340);
+    currentQuestion ++;
   }
   
-  void endGame(){
+  boolean playGame(){
+    boolean finished = false;
+    if (this.currentQuestion < 5){
+        qGame.showQuestion();
+        if (keyPressed){
+          if (key == '1'){
+            setPlayerAnswer("1");
+            delay(100);
+            nextQuestion();
+          } else if (key == '2'){
+            setPlayerAnswer("2");
+            delay(100);
+            nextQuestion();
+          } else if (key == '3'){
+            setPlayerAnswer("3");
+            delay(100);
+            nextQuestion();
+          }
+        }
+      } else {
+        qGame.showScore();
+        finished = true;
+      }
+  return finished;
   }
   
 }

@@ -50,27 +50,10 @@ void draw(){
       
       break;
     case(1):
-      int currentQuestion = qGame.getCurrentQuestion();
-      println(currentQuestion);
-      if (currentQuestion < 5){
-        qGame.showQuestion();
-        if (keyPressed){
-          if (key == '1'){
-            qGame.setPlayerAnswer("1");
-            delay(100);
-            qGame.nextQuestion();
-          } else if (key == '2'){
-            qGame.setPlayerAnswer("2");
-            delay(100);
-            qGame.nextQuestion();
-          } else if (key == '3'){
-            qGame.setPlayerAnswer("3");
-            delay(100);
-            qGame.nextQuestion();
-          }
-        }
-      } else {
-        qGame.showScore();
+      boolean finished = qGame.playGame();
+      if (finished){
+        delay(2500);
+        state = 2;
       }
       break;
     case(2):
@@ -82,7 +65,6 @@ void mouseClicked(){
   if(state == 0){
     if (mouseX > 400 && mouseX < 800 && mouseY > 250 && mouseY < 550){
       state = 1;
-      redraw();
     }
   }
 }
