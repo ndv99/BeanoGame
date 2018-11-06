@@ -51,10 +51,10 @@ void draw(){
       break;
     case(1):
       int currentQuestion = qGame.getCurrentQuestion();
+      println(currentQuestion);
       if (currentQuestion < 5){
         qGame.showQuestion();
         if (keyPressed){
-          println(key);
           if (key == '1'){
             qGame.setPlayerAnswer("1");
             delay(100);
@@ -70,7 +70,7 @@ void draw(){
           }
         }
       } else {
-        //qGame.showScore();
+        qGame.showScore();
       }
       break;
     case(2):

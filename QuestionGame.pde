@@ -70,7 +70,7 @@ class QuestionGame{
   
   void showScore(){
     int correctAnswers = 0;
-    for (int i = 0; i <= playerAnswers.length; i++){
+    for (int i = 0; i < playerAnswers.length; i++){
       println(i);
       delay(500);
       if (playerAnswers[i].equals(rightAnswers[i])){
@@ -81,7 +81,9 @@ class QuestionGame{
     strokeWeight(5);
     stroke(blue);
     rect(0, 250, 1200, 150);
+    fill(red);
     text("You got " + correctAnswers + " questions right!", 10, 300);
+    this.currentQuestion ++;
   }
   
   void endGame(){
