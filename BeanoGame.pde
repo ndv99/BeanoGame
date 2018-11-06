@@ -1,5 +1,5 @@
 // 0 means menu, 1 means question game, 2 means hill game.
-int state = 1;
+int state = 0;
 
 int totalTime = 5000;
 int savedTime;
@@ -39,6 +39,7 @@ void draw(){
       menu.drawTitle();
       menu.characterChoices();
       menu.factBox();
+      menu.startButton();
       
       int passedTime = millis() - savedTime;
       if (passedTime > totalTime){

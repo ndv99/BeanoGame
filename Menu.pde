@@ -32,7 +32,7 @@ class Menu{
     fill(yellow);
     strokeWeight(5);
     stroke(blue);
-    rect(0, 700, 1200, 50);
+    rect(-200, -100, 400, 200);
   }
   
   void factBox(){
