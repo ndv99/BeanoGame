@@ -7,18 +7,17 @@ class Menu{
   "The word 'Beano' means 'Party'."
   };
   int currentFact = 2;
+  BeanoChar dennis = new BeanoChar("Dennis the Menace");
+  BeanoChar minnie = new BeanoChar("Minnie the Minx");
+  BeanoChar gnasher = new BeanoChar("Gnasher");
+  BeanoChar roger = new BeanoChar("Roger the Dodger");
+  BeanoChar[] characters = {
+    dennis, minnie, gnasher, roger
+  };
   
   PImage title;
   
-  void characterChoices(){
-    BeanoChar dennis = new BeanoChar("Dennis the Menace");
-    BeanoChar minnie = new BeanoChar("Minnie the Minx");
-    BeanoChar gnasher = new BeanoChar("Gnasher");
-    BeanoChar roger = new BeanoChar("Roger the Dodger");
-    BeanoChar[] characters = {
-      dennis, minnie, gnasher, roger
-    };
-    
+  void characterChoices(){    
     int count = 0;
     for (BeanoChar character : characters){
       character.setCharacter();
@@ -53,6 +52,10 @@ class Menu{
     } else {
       currentFact = 0;
     }
+  }
+  
+  BeanoChar[] getCharacters(){
+    return characters;
   }
   
 }

@@ -6,6 +6,8 @@ int savedTime;
 
 PImage backgroundIMG;
 Menu menu = new Menu();
+Player player = new Player();
+BeanoChar[] characters = menu.getCharacters();
 
 color yellow = color(253, 253, 5);
 color blue = color(14, 76, 139);
@@ -16,6 +18,16 @@ void setup(){
   savedTime = millis();
   backgroundIMG = loadImage("GuiAssets/MenuBackground.jpg");
   background(backgroundIMG);
+  
+  player.setCharacter(characters[0]);
+  switch(state){
+    case(0):
+      break;
+    case(1):
+      break;
+    case(2):
+      break;
+  }
 }
 
 void draw(){
@@ -24,6 +36,7 @@ void draw(){
       menu.drawTitle();
       menu.characterChoices();
       menu.factBox();
+      
       int passedTime = millis() - savedTime;
       if (passedTime > totalTime){
         menu.nextFact();
