@@ -47,6 +47,7 @@ void draw(){
         menu.factBox();
         savedTime = millis();
       }
+      
       break;
     case(1):
       int currentQuestion = qGame.getCurrentQuestion();
@@ -74,5 +75,14 @@ void draw(){
       break;
     case(2):
       break;
+  }
+}
+
+void mouseClicked(){
+  if(state == 0){
+    if (mouseX > 400 && mouseX < 800 && mouseY > 250 && mouseY < 550){
+      state = 1;
+      redraw();
+    }
   }
 }
