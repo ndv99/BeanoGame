@@ -6,7 +6,7 @@ class Menu{
   "Dennis the Menace wasn't in the first Beano comic!",
   "The word 'Beano' means 'Party'."
   };
-  int currentFact = 0;
+  int currentFact = 2;
   
   PImage title;
   
@@ -31,12 +31,28 @@ class Menu{
   }
   
   void factBox(){
+    fill(yellow);
+    strokeWeight(5);
+    stroke(blue);
+    rect(0, 700, 1200, 50);
+    String fact = facts[currentFact];
+    textSize(40);
+    fill(red);
+    text(fact, 10, 740);
     
   }
   
   void drawTitle(){
     title = loadImage("GuiAssets/title.png");
     image(title, 25, 25);
+  }
+  
+  void nextFact(){
+    if (currentFact != 3){
+      currentFact ++;
+    } else {
+      currentFact = 0;
+    }
   }
   
 }
