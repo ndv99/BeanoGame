@@ -71,7 +71,6 @@ class QuestionGame{
   void showScore(){
     int correctAnswers = 0;
     for (int i = 0; i < playerAnswers.length; i++){
-      println(i);
       if (playerAnswers[i].equals(rightAnswers[i])){
         correctAnswers ++;
       }

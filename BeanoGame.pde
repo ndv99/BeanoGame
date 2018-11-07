@@ -54,6 +54,7 @@ void draw(){
       }
       break;
     case(1):
+      image(backgroundIMG, 0, 0);
       boolean finished = qGame.playGame();
       if (finished){
         delay(2500);
