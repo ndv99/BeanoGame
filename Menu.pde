@@ -29,6 +29,10 @@ class Menu{
     }
   }
   
+  //BeanoChar selectChar(int charRef){
+    
+  //}
+  
   void startButton(){
     translate(600, 350);
     fill(yellow);
