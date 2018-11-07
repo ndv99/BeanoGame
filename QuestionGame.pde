@@ -93,15 +93,15 @@ class QuestionGame{
         if (keyPressed){
           if (key == '1'){
             setPlayerAnswer("1");
-            delay(100);
+            delay(150);
             nextQuestion();
           } else if (key == '2'){
             setPlayerAnswer("2");
-            delay(100);
+            delay(150);
             nextQuestion();
           } else if (key == '3'){
             setPlayerAnswer("3");
-            delay(100);
+            delay(150);
             nextQuestion();
           }
         }

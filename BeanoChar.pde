@@ -22,9 +22,9 @@ class BeanoChar{
         icon = loadImage("Icons/Gnasher.png");
         sprite = loadImage("Sprites/Gnasher.png");
         break;
-      case("Roger the Dodger"):
-        icon = loadImage("Icons/Roger.png");
-        sprite = loadImage("Sprites/Roger.png");
+      case("Pie Face"):
+        icon = loadImage("Icons/PieFace.png");
+        sprite = loadImage("Sprites/PieFace.png");
         break;
     }
   }

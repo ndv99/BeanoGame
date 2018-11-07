@@ -11,4 +11,7 @@ class HillGame{
   void drawHill(){
   }
   
+  void playGame(){
+  }
+  
 }

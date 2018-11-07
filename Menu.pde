@@ -11,12 +11,14 @@ class Menu{
   BeanoChar dennis = new BeanoChar("Dennis the Menace");
   BeanoChar minnie = new BeanoChar("Minnie the Minx");
   BeanoChar gnasher = new BeanoChar("Gnasher");
-  BeanoChar roger = new BeanoChar("Roger the Dodger");
+  BeanoChar pieface = new BeanoChar("Pie Face");
   BeanoChar[] characters = {
-    dennis, minnie, gnasher, roger
+    dennis, minnie, gnasher, pieface
   };
   
   PImage title;
+  
+  //methods
   
   void characterChoices(){
     int count = 0;

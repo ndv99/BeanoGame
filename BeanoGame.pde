@@ -1,16 +1,15 @@
 // 0 means menu, 1 means question game, 2 means hill game.
-int state = 1;
+int state = 0;
 
 int totalTime = 5000;
 int savedTime;
 
 PImage backgroundIMG;
 
-Menu menu = new Menu();
-Player player = new Player();
-BeanoChar[] characters = menu.getCharacters();
-
-QuestionGame qGame = new QuestionGame();
+QuestionGame qGame;
+Menu menu;
+HillGame hillGame;
+Player player;
 
 color yellow = color(253, 253, 5);
 color blue = color(14, 76, 139);
@@ -21,6 +20,12 @@ void setup(){
   savedTime = millis();
   backgroundIMG = loadImage("GuiAssets/MenuBackground.jpg");
   background(backgroundIMG);
+  
+  menu = new Menu();
+  qGame = new QuestionGame();
+  player = new Player();
+  
+  BeanoChar[] characters = menu.getCharacters();
   
   player.setCharacter(characters[0]);
   switch(state){
@@ -47,7 +52,6 @@ void draw(){
         menu.factBox();
         savedTime = millis();
       }
-      
       break;
     case(1):
       boolean finished = qGame.playGame();
@@ -55,8 +59,10 @@ void draw(){
         delay(2500);
         state = 2;
       }
+      
       break;
     case(2):
+      
       break;
   }
 }
