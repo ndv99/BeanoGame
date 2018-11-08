@@ -7,7 +7,9 @@ class Menu{
   "Dennis the Menace wasn't in the first Beano comic!",
   "The word 'Beano' means 'Party'."
   };
+  
   int currentFact = 2;
+  
   BeanoChar dennis = new BeanoChar("Dennis the Menace");
   BeanoChar minnie = new BeanoChar("Minnie the Minx");
   BeanoChar gnasher = new BeanoChar("Gnasher");
@@ -29,9 +31,15 @@ class Menu{
     }
   }
   
-  //BeanoChar selectChar(int charRef){
-    
-  //}
+  void chosenCharacter(BeanoChar character){
+    strokeWeight(5);
+    stroke(blue);
+    fill(yellow);
+    rect(900, 0, 300, 40);
+    textSize(30);
+    fill(red);
+    text(character.name, 910, 30);
+  }
   
   void startButton(){
     translate(600, 350);

@@ -33,4 +33,9 @@ class BeanoChar{
     icon.resize(100, 100);
     return icon;
   }
+  
+  PImage getSprite(){
+    sprite.resize(100,200);
+    return sprite;
+  }
 }

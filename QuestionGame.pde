@@ -45,6 +45,17 @@ class QuestionGame{
     return correctlyAnswered;
   }
   
+  void instructionBox(){
+    fill(yellow);
+    strokeWeight(5);
+    stroke(blue);
+    rect(0, 100, 1200, 50);
+    String howTo = "Press 1, 2, or 3 on the keyboard to answer.";
+    textSize(40);
+    fill(red);
+    text(howTo, 10, 140);
+  }
+  
   void nextQuestion(){
     currentQuestion ++;
   }
@@ -87,6 +98,7 @@ class QuestionGame{
   
   boolean playGame(){
     boolean finished = false;
+    instructionBox();
     if (this.currentQuestion < 5){
         qGame.showQuestion();
         if (keyPressed){

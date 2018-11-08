@@ -4,4 +4,8 @@ class Player{
   void setCharacter(BeanoChar character){
     this.character = character;
   }
+  
+  BeanoChar getCharacter(){
+    return character;
+  }
 }
