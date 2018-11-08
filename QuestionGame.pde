@@ -93,7 +93,6 @@ class QuestionGame{
     fill(red);
     textSize(90);
     text("You got " + correctAnswers + " questions right!", 10, 340);
-    currentQuestion ++;
   }
   
   boolean playGame(){
@@ -117,10 +116,13 @@ class QuestionGame{
           }
         }
       } else {
-        qGame.showScore();
         finished = true;
       }
   return finished;
+  }
+  
+  void resetGame(){
+    currentQuestion = 0;
   }
   
 }

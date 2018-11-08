@@ -4,7 +4,7 @@ class BeanoChar{
   String name;
   
   
-  BeanoChar(String name){
+  BeanoChar (String name){
     this.name = name;
   }
   

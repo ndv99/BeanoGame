@@ -1,5 +1,5 @@
 // 0 means menu, 1 means question game, 2 means hill game.
-int state = 2;
+int state = 0;
 
 int changeFactTime;
 int savedTime;
@@ -32,6 +32,7 @@ void setup(){
   BeanoChar[] characters = menu.getCharacters();
   
   player.setCharacter(characters[0]);
+  
   switch(state){
     case(0):
       break;
@@ -62,22 +63,27 @@ void draw(){
     case(1):
       // draw background over menu
       image(backgroundIMG, 0, 0);
-      boolean finished = qGame.playGame();
-      if (finished){
-        delay(2500); // shows score for 2.5 seconds
+      boolean qGameFinished = qGame.playGame();
+      if (qGameFinished){
+        qGame.showScore();
         state = 2;
+        qGame.resetGame();
       }
-      
       break;
     case(2):
-      hillGame.playGame();
+      hillGame.setCharacter(player.getCharacter());
+      boolean hillGameFinished = hillGame.playGame();
+      if (hillGameFinished){
+        hillGame.resetGame();
+        state = 0;
+      }
       break;
   }
 }
 
 void mouseClicked(){
   // if on menu
-  if(state == 0){
+  if (state == 0){
     // start game
     if (mouseX > 400 && mouseX < 800 && mouseY > 250 && mouseY < 550){
       state = 1;
@@ -96,5 +102,13 @@ void mouseClicked(){
     if (mouseX > 750 && mouseX < 850 && mouseY > 25 && mouseY < 125){
       player.setCharacter(characters[3]);
     }
+  }
+}
+
+void keyPressed(){
+  if (state == 2){
+    int speed = hillGame.getSpeed();
+    hillGame.setSpeed(speed++);
+    println(hillGame.getSpeed());
   }
 }

@@ -1,7 +1,7 @@
 class HillGame{
-  float[] startPoint = {750, 0};
-  float[] endPoint = {1000, 300};
-  float[] position = {0, 0};
+  float[] startPoint = {0, 750};
+  float[] endPoint = {900, 300};
+  float[] position = {0, 750};
   int speed = 1;
   boolean finished = false;
   
@@ -17,14 +17,19 @@ class HillGame{
     sprite = character.getSprite();
   }
   
-  void adjustSpeed(){
-    if (keyPressed){
-      speed++;
-    }
+  void autoSlow(){
     int passedTime = savedTime - millis();
     if (passedTime > 50){
       speed --;
     }
+  }
+  
+  void setSpeed(int speed){
+    this.speed = speed;
+  }
+  
+  int getSpeed(){
+    return speed;
   }
   
   void drawHill(){
@@ -36,9 +41,9 @@ class HillGame{
   }
   
   boolean playGame(){
-    adjustSpeed();
+    //autoSlow();
     movePlayer();
-    if (position == endPoint){
+    if (position[0] >= endPoint[0] | position[1] <= endPoint[1]){
       finished = true;
     }
     return finished;
@@ -49,16 +54,18 @@ class HillGame{
   }
   
   void movePlayer(){
-    int passedTime = savedTime - millis();
-    if (passedTime > characterMoveInterval){
-      image(bgImage, 0, 0);
-      drawHill();
-      image(sprite, position[0], position[1] + 200, 100, 200);
-      float newX = position[0] + speed*10;
-      float newY = position[1] + speed*4.5;
-      setNewPosition(newX, newY);
-    }
-    
+    image(bgImage, 0, 0);
+    drawHill();
+    image(sprite, position[0], position[1] - 200, 100, 200);
+    float newX = position[0] + speed;
+    float newY = position[1] - speed*0.45;
+    setNewPosition(newX, newY); 
+  }
+  
+  void resetGame(){
+    setNewPosition(startPoint[0], startPoint[1]);
+    setSpeed(1);
+    finished = false;
   }
   
 }
