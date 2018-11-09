@@ -7,6 +7,7 @@ class HillGame{
   
   BeanoChar character;
   PImage sprite;
+  PImage title;
   
   int savedTime = millis();
   int characterMoveInterval = 10;
@@ -58,6 +59,8 @@ class HillGame{
   
   void movePlayer(){
     image(backgroundIMG, 0, 0);
+    titleBox();
+    instructionBox();
     drawHill();
     image(sprite, position[0], position[1] - 200, 100, 200);
     float newX = position[0] + speed;
@@ -80,6 +83,21 @@ class HillGame{
     fill(red);
     textSize(75);
     text("You did it in " + (timeTaken - startTime) + " milliseconds!", 10, 340);
+  }
+  
+  void instructionBox(){
+    fill(yellow);
+    strokeWeight(5);
+    stroke(blue);
+    rect(0, 0, 1200, 50);
+    textSize(40);
+    fill(red);
+    text("Keep tapping a key to run faster!", 10, 40);
+  }
+  
+  void titleBox(){
+    title = loadImage("GuiAssets/DennisDash.png");
+    image(title, 10, 60);
   }
   
 }
