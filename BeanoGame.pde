@@ -1,8 +1,10 @@
 // 0 means menu, 1 means question game, 2 means hill game.
 int state = 0;
-
 int changeFactTime;
 int savedTime;
+
+boolean wait;
+boolean waited;
 
 PImage backgroundIMG;
 
@@ -29,6 +31,9 @@ void setup(){
   hillGame = new HillGame();
   player = new Player();
   
+  wait = false;
+  waited = true;
+  
   BeanoChar[] characters = menu.getCharacters();
   
   player.setCharacter(characters[0]);
@@ -46,6 +51,8 @@ void setup(){
 void draw(){
   switch (state){
     case(0):
+      wait = false;
+      waited = false;
       image(backgroundIMG, 0, 0);
       menu.drawTitle();
       menu.characterChoices();
@@ -65,19 +72,49 @@ void draw(){
       image(backgroundIMG, 0, 0);
       boolean qGameFinished = qGame.playGame();
       if (qGameFinished){
-        qGame.showScore();
-        state = 2;
-        qGame.resetGame();
+        int correctAnswers = qGame.showScore();
+        if (wait){
+          delay(2500);
+          state = 2;
+          hillGame.setSpeed(correctAnswers/2);
+          savedTime = millis();
+          qGame.resetGame();
+          waited = true;
+        }
+        wait = true;
+        if (waited){
+          wait = false;
+          waited = false;
+        }
       }
       break;
     case(2):
-      hillGame.setCharacter(player.getCharacter());
       boolean hillGameFinished = hillGame.playGame();
       if (hillGameFinished){
-        hillGame.resetGame();
-        state = 0;
+        int timeTaken = millis();
+        hillGame.showTime(savedTime, timeTaken);
+        if (wait){
+          delay(2500);
+          hillGame.resetGame();
+          state = 0;
+          waited = true;
+        }
+        wait = true;
+        if (waited){
+          wait = false;
+          waited = false;
+        }
       }
       break;
+  }
+}
+
+void scriptThatMakesMyDelayWork(){
+  int count = 0;
+  while(count < 2){
+    delay(1250);
+    println(count);
+    count ++;
   }
 }
 
@@ -85,30 +122,26 @@ void mouseClicked(){
   // if on menu
   if (state == 0){
     // start game
-    if (mouseX > 400 && mouseX < 800 && mouseY > 250 && mouseY < 550){
+    if (mouseX > 443.5 && mouseX < 800 && mouseY > 330 && mouseY < 670){
       state = 1;
     }
     // characters selection
     BeanoChar[] characters = menu.getCharacters();
     if (mouseX > 450 && mouseX < 550 && mouseY > 25 && mouseY < 125){
       player.setCharacter(characters[0]);
+      hillGame.setCharacter(characters[0]);
     }
     if (mouseX > 550 && mouseX < 650 && mouseY > 25 && mouseY < 125){
       player.setCharacter(characters[1]);
+      hillGame.setCharacter(characters[1]);
     }
     if (mouseX > 650 && mouseX < 750 && mouseY > 25 && mouseY < 125){
       player.setCharacter(characters[2]);
+      hillGame.setCharacter(characters[2]);
     }
     if (mouseX > 750 && mouseX < 850 && mouseY > 25 && mouseY < 125){
       player.setCharacter(characters[3]);
+      hillGame.setCharacter(characters[3]);
     }
-  }
-}
-
-void keyPressed(){
-  if (state == 2){
-    int speed = hillGame.getSpeed();
-    hillGame.setSpeed(speed++);
-    println(hillGame.getSpeed());
   }
 }

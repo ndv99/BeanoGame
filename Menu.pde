@@ -19,6 +19,8 @@ class Menu{
   };
   
   PImage title;
+  PImage title2;
+  PImage start;
   
   //methods
   
@@ -43,10 +45,8 @@ class Menu{
   
   void startButton(){
     translate(600, 350);
-    fill(yellow);
-    strokeWeight(5);
-    stroke(blue);
-    rect(-200, -100, 400, 200);
+    start = loadImage("GuiAssets/Start.png");
+    image(start, -start.width/2, -20);
   }
   
   void factBox(){
@@ -62,7 +62,9 @@ class Menu{
   
   void drawTitle(){
     title = loadImage("GuiAssets/title.png");
-    image(title, 25, 25);
+    title2 = loadImage("GuiAssets/DennisDash2.png");
+    image(title, 5, 5);
+    image(title2, 40.5, 120);
   }
   
   void nextFact(){

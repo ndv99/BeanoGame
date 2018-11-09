@@ -9,7 +9,7 @@ class BeanoChar{
   }
   
   void setCharacter(){
-    switch(name){
+    switch(this.name){
       case("Dennis the Menace"):
         icon = loadImage("Icons/Dennis.png");
         sprite = loadImage("Sprites/Dennis.png");

@@ -79,7 +79,7 @@ class QuestionGame{
     text(answer3, 10, 380);
   }
   
-  void showScore(){
+  int showScore(){
     int correctAnswers = 0;
     for (int i = 0; i < playerAnswers.length; i++){
       if (playerAnswers[i].equals(rightAnswers[i])){
@@ -93,6 +93,7 @@ class QuestionGame{
     fill(red);
     textSize(90);
     text("You got " + correctAnswers + " questions right!", 10, 340);
+    return correctAnswers;
   }
   
   boolean playGame(){

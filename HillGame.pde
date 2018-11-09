@@ -2,33 +2,31 @@ class HillGame{
   float[] startPoint = {0, 750};
   float[] endPoint = {900, 300};
   float[] position = {0, 750};
-  int speed = 1;
+  float speed = 1;
   boolean finished = false;
   
   BeanoChar character;
   PImage sprite;
-  PImage bgImage = loadImage("GUIAssets/MenuBackground.jpg");
   
   int savedTime = millis();
   int characterMoveInterval = 10;
   
-  void setCharacter(BeanoChar character){
-    this.character = character;
-    sprite = character.getSprite();
+  void setCharacter(BeanoChar characterChoice){
+    this.character = characterChoice;
+    sprite = characterChoice.getSprite();
   }
   
   void autoSlow(){
-    int passedTime = savedTime - millis();
-    if (passedTime > 50){
-      speed --;
-    }
+      if (speed > 1){
+        speed = speed / 1.01;
+      }
   }
   
   void setSpeed(int speed){
     this.speed = speed;
   }
   
-  int getSpeed(){
+  float getSpeed(){
     return speed;
   }
   
@@ -41,8 +39,11 @@ class HillGame{
   }
   
   boolean playGame(){
-    //autoSlow();
+    autoSlow();
     movePlayer();
+    if (keyPressed){
+      speed = speed * 1.1;
+    }
     if (position[0] >= endPoint[0] | position[1] <= endPoint[1]){
       finished = true;
     }
@@ -54,7 +55,7 @@ class HillGame{
   }
   
   void movePlayer(){
-    image(bgImage, 0, 0);
+    image(backgroundIMG, 0, 0);
     drawHill();
     image(sprite, position[0], position[1] - 200, 100, 200);
     float newX = position[0] + speed;
@@ -66,6 +67,17 @@ class HillGame{
     setNewPosition(startPoint[0], startPoint[1]);
     setSpeed(1);
     finished = false;
+  }
+  
+  void showTime(int startTime, int timeTaken){
+    image(backgroundIMG, 0, 0);
+    fill(yellow);
+    strokeWeight(5);
+    stroke(blue);
+    rect(0, 250, 1200, 150);
+    fill(red);
+    textSize(75);
+    text("You did it in " + (timeTaken - startTime) + " milliseconds!", 10, 340);
   }
   
 }
