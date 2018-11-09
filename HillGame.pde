@@ -17,13 +17,15 @@ class HillGame{
   }
   
   void autoSlow(){
-      if (speed > 1){
-        speed = speed / 1.01;
-      }
+    if (speed > 1){
+      speed = speed / 1.01;
+    }
   }
   
-  void setSpeed(int speed){
-    this.speed = speed;
+  void setSpeed(float speed){
+    if (speed >= 1) {
+      this.speed = speed;
+    }
   }
   
   float getSpeed(){

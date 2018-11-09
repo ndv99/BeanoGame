@@ -37,6 +37,7 @@ void setup(){
   BeanoChar[] characters = menu.getCharacters();
   
   player.setCharacter(characters[0]);
+  hillGame.setCharacter(characters[0]);
   
   switch(state){
     case(0):
@@ -76,7 +77,7 @@ void draw(){
         if (wait){
           delay(2500);
           state = 2;
-          hillGame.setSpeed(correctAnswers/2);
+          hillGame.setSpeed(correctAnswers * 1.5);
           savedTime = millis();
           qGame.resetGame();
           waited = true;
@@ -106,15 +107,6 @@ void draw(){
         }
       }
       break;
-  }
-}
-
-void scriptThatMakesMyDelayWork(){
-  int count = 0;
-  while(count < 2){
-    delay(1250);
-    println(count);
-    count ++;
   }
 }
 
