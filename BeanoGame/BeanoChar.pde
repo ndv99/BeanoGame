@@ -1,13 +1,23 @@
+// class to store attributes about game characters
 class BeanoChar{
+  
+  // icon and sprie for character
   PImage icon;
   PImage sprite;
+  
+  // sizes for icon and sprite
+  int[] iconSize = {100, 100};
+  int[] spriteSize = {100, 200};
+  
+  // actual name of character
   String name;
   
-  
+  // constructor - forces setting of name upon initialisation
   BeanoChar (String name){
     this.name = name;
   }
   
+  // sets up character attributes using the name
   void setCharacter(){
     switch(this.name){
       case("Dennis the Menace"):
@@ -30,12 +40,14 @@ class BeanoChar{
   }
   
   PImage getIcon(){
-    icon.resize(100, 100);
+    // accessor for icon
+    icon.resize(iconSize[0], iconSize[1]);
     return icon;
   }
   
   PImage getSprite(){
-    sprite.resize(100,200);
+    // accessor for sprite
+    sprite.resize(spriteSize[0], spriteSize[1]);
     return sprite;
   }
 }
