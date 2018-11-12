@@ -148,6 +148,7 @@ class QuestionGame{
   // game is reset when you finish so it doesn't break if you want to play it again.
   void resetGame(){
     currentQuestion = 0;
+    playerAnswers = new String[] {"", "", "", "", ""};
   }
   
 }
