@@ -105,7 +105,7 @@ class HillGame{
     rect(0, 250, 1200, 150);
     fill(red);
     textSize(75);
-    text("You did it in " + ((timeTaken - startTime) / 1000) + " seconds!", 10, 340);
+    text("You did it in " + ((float)(timeTaken - startTime) / 1000) + " seconds!", 10, 340);
   }
   
   void instructionBox(){
