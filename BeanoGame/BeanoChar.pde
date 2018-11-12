@@ -1,6 +1,8 @@
 class BeanoChar{
   PImage icon;
   PImage sprite;
+  int[] iconSize = {100, 100};
+  int[] spriteSize = {100, 200};
   String name;
   
   
@@ -30,12 +32,12 @@ class BeanoChar{
   }
   
   PImage getIcon(){
-    icon.resize(100, 100);
+    icon.resize(iconSize[0], iconSize[1]);
     return icon;
   }
   
   PImage getSprite(){
-    sprite.resize(100,200);
+    sprite.resize(spriteSize[0], spriteSize[1]);
     return sprite;
   }
 }
