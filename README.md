@@ -14,3 +14,10 @@ A game to be installed at the V&amp;A Dundee, based on the Beano comics.
 4. The first minigame will start requiring you to answer five questions about the Beano comics. *hint: the answers are shown on the menu screen.*
 5. After completing the questions, you have to make your character run up Dundee Law by quickly tapping any key. The more questions you answered right in the question minigame, the faster your initial speed will be in this one. The faster you tap a key, the quicker you increase your speed.
 6. Once you've reached the top of Law, you'll be told how fast you did it, and then returned to the main menu.
+
+Designed by:
+-Kerri Graham
+-Lois Glithero
+-Sophie Graham
+-Zoe Sophia Grundy
+-Nick De Villiers
